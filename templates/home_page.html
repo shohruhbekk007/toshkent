@@ -1,0 +1,13 @@
+price<html>
+ <head>
+     Home Page
+ </head>
+ <body>
+  <h1>Siz buyurgan maxsulotlar</h1>
+  {% comment %} {% for maxsulot in maxsulotlar %} {% endcomment %}
+  <h3> {{ maxsulotlar.cotegory }} </h3>
+  <p>{{ maxsulotlar.buyurtmalar }}</p>
+  <p> {{ maxsulotlar.price }}
+  {% comment %} {% endfor %} {% endcomment %}
+ </body>
+</html>
