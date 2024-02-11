@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Toifalash, maxsulot_qoshish
+from .models import Toifalash, maxsulot_qoshish, Qoshimcha_xizmatlar, Stul, Taomlar
 # from .models import AlohidaPasuda, CofeBreak, Golf, Inventarlar, KumushEskiPasuda, LacostaPasuda, MaterialMahsulotlar, OqTillaPasuda, Set_Pasuda, YashilPasuda, Stol_stul, Materialli_mahsulotlar
 
 
@@ -8,6 +8,19 @@ admin.site.register(Toifalash)
 @admin.register(maxsulot_qoshish)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('nomi', 'olchami', 'toifasi')
+
+@admin.register(Qoshimcha_xizmatlar)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('nomi', 'olchami')
+
+@admin.register(Stul)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('nomi', 'olchami', 'toifasi')
+
+@admin.register(Taomlar)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('nomi', 'olchami', 'toifasi')
+
 
 
 # @admin.register(Set_Pasuda)

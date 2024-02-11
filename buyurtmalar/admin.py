@@ -3,7 +3,6 @@ from .models import User, Sotuv
 from django.utils.translation import gettext as _
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import CustomUserCreationForm
-from django.contrib.admin import action
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
