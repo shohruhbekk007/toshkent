@@ -1,0 +1,10 @@
+{% extends "admin/change_form.html" %}
+
+
+{% block object-tools %}
+  {{ block.super }}
+    {% if original.id %}
+      <a href="{% url 'admin:printcheck' pk=original.id %}" class="checkbtn" style="display: flex;justify-content: center; padding: 10px; margin-top: 100px; background-color: blue; color: white; border-radius: 5px;">Check chiqarish</a>
+    {% endif %}
+  
+{% endblock %}

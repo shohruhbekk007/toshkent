@@ -1,13 +1,68 @@
-price<html>
- <head>
-     Home Page
- </head>
- <body>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
   <h1>Siz buyurgan maxsulotlar</h1>
-  {% comment %} {% for maxsulot in maxsulotlar %} {% endcomment %}
-  <h3> {{ maxsulotlar.cotegory }} </h3>
-  <p>{{ maxsulotlar.buyurtmalar }}</p>
-  <p> {{ maxsulotlar.price }}
-  {% comment %} {% endfor %} {% endcomment %}
- </body>
+  <hr>
+  
+  {% if food_orders %}
+    <h4>Ovqat buyurtmalar</h4>
+    <table style="width: 100%;">
+      <tr>
+        <th>Nomi</th>
+        <th>Soni</th>
+        <th>Narxi</th>
+      </tr>
+      {% for order in food_orders %}
+      <tr> 
+        <td>{{ order.product.nomi }}</td>
+        <td>{{ order.count }}</td>
+        <td>{{ order.product.narxi }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+  <hr>
+  
+  {% if service_orders %}
+    <h4>Qo'shimcha xizmat buyurtmalar</h4>
+    <table style="border-collapse: collapse; width: 100%;">
+      <tr>
+        <th>Nomi</th>
+        <th>Narxi</th>
+      </tr>
+      {% for order in service_orders %}
+      <tr> 
+        <td>{{ order.product.nomi }}</td>
+        <td>{{ order.product.narxi }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+  <hr>
+  
+  {% if stul_orders %}
+    <h4>Stul buyurtmalar</h4>
+    <table style="border-collapse: collapse; width: 100%;">
+      <tr>
+        <th>Nomi</th>
+        <th>O'lchami</th>
+        <th>Soni</th>
+        <th>Narxi</th>
+      </tr>
+      {% for order in stul_orders %}
+      <tr> 
+        <td>{{ order.product.nomi }}</td>
+        <td>{{ order.product.olchami }}</td>
+        <td>{{ order.count }}</td>
+        <td>{{ order.product.narxi }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+  <hr>
+  
+  <p> Umumiy bahosi: <b>{{ umumiy_baho }}</b> </p>
+</body>
 </html>

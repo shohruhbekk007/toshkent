@@ -1,9 +1,9 @@
 from django.http import HttpResponse
-from .serializer import Biz_haqimizdaSerilazer, ProductSerializer, CoruselSerilazer, Maxsulot_qoshishSerialzer, Tadbir_lavhaSerilazer, Stul_qoshishSerialzer, StatiskaSerilazer, Taom_qoshishSerialzer, QoshimchaSerializer
+from .serializer import *
 from datetime import datetime as d
-from buyurtmalar.models import Sotuv
-from .models import Biz_haqimizda, Corusel, Statiska, Tadbir_lavhalari
-from pasuda_qoshish.models import maxsulot_qoshish, Taomlar, Stul, Qoshimcha_xizmatlar
+from orders.models import Sale
+from .models import *
+from pasuda_qoshish.models import maxsulot, Taomlar, Stul, Qoshimcha_xizmatlar
 from rest_framework.generics import ListAPIView, CreateAPIView
 
 
@@ -17,25 +17,17 @@ def home(request):
 class Carusell(ListAPIView):
     queryset = Corusel.objects.all()
     serializer_class = CoruselSerilazer
- 
-
-    
-class ProducViews(CreateAPIView):
-    queryset = Sotuv.objects.all()
-    serializer_class = ProductSerializer
-    
 
 
-class My_photos(ListAPIView):
-    queryset = Tadbir_lavhalari.objects.all()
-    serializer_class = Tadbir_lavhaSerilazer
+class EventsList(ListAPIView):
+    queryset = Event.objects.all()
+    serializer_class = EventSerilazer
 
 
-class They_aboutList(ListAPIView):
-    queryset = Biz_haqimizda.objects.all()
-    serializer_class = Biz_haqimizdaSerilazer
-    
-    
+class AboutUsList(ListAPIView):
+    queryset = AboutUs.objects.all()
+    serializer_class = AboutUsSerilazer
+
     
 class StatiskaViews(ListAPIView):
     queryset = Statiska.objects.all()
@@ -44,8 +36,8 @@ class StatiskaViews(ListAPIView):
 
     
 class MaxsulotViews(ListAPIView):
-    queryset = maxsulot_qoshish.objects.all()
-    serializer_class = Maxsulot_qoshishSerialzer
+    queryset = maxsulot.objects.all()
+    serializer_class = maxsulotSerialzer
 
 
 class StulViews(ListAPIView):
